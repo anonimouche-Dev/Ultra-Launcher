@@ -2,13 +2,13 @@
 
 static int LireUnNombre()
 {
-    Console.WriteLine("Ecrire le premier chiffre pour l'addition");
+    Console.WriteLine("Ecrire le 1er chiffre pour l'addition");
     string a = Console.ReadLine();
     int nb1;
     while (!Int32.TryParse(a, out nb1))
     {
         Console.WriteLine($"{a} n'est pas un nombre entier");
-        Console.WriteLine("Ecrire le premier chiffre pour l'addition");
+        Console.WriteLine("Ecrire le 2emes chiffre pour l'addition");
         a = Console.ReadLine();
     }
 
