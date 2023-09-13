@@ -199,7 +199,7 @@ static void X(string phrase)
              
         Console.Write(X);
         // attendre un temps
-        Thread.Sleep(20);
+        Thread.Sleep(9);
     }
     Console.WriteLine();
 
