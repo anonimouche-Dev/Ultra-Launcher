@@ -1,10 +1,25 @@
 ﻿UltraLauncher();
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 static int LireUnNombre()
 {
     
-    Console.WriteLine("Ecrire le 1er chiffre pour l'addition");
+    Console.WriteLine("Ecrire chiffre pour l'addition");
     string a = Console.ReadLine();
     
     int nb1;
@@ -25,7 +40,17 @@ static void UltraLauncher()
    
     
     Console.ForegroundColor = ConsoleColor.DarkYellow;
-    LettreParLettre("Ultra Launcher");
+    X (@"
+ /$$   /$$ /$$    /$$$$$$$$ /$$$$$$$   /$$$$$$      /$$        /$$$$$$  /$$   /$$ /$$   /$$  /$$$$$$  /$$   /$$ /$$$$$$$$ /$$$$$$$ 
+| $$  | $$| $$   |__  $$__/| $$__  $$ /$$__  $$    | $$       /$$__  $$| $$  | $$| $$$ | $$ /$$__  $$| $$  | $$| $$_____/| $$__  $$
+| $$  | $$| $$      | $$   | $$  \ $$| $$  \ $$    | $$      | $$  \ $$| $$  | $$| $$$$| $$| $$  \__/| $$  | $$| $$      | $$  \ $$
+| $$  | $$| $$      | $$   | $$$$$$$/| $$$$$$$$    | $$      | $$$$$$$$| $$  | $$| $$ $$ $$| $$      | $$$$$$$$| $$$$$   | $$$$$$$/
+| $$  | $$| $$      | $$   | $$__  $$| $$__  $$    | $$      | $$__  $$| $$  | $$| $$  $$$$| $$      | $$__  $$| $$__/   | $$__  $$
+| $$  | $$| $$      | $$   | $$  \ $$| $$  | $$    | $$      | $$  | $$| $$  | $$| $$\  $$$| $$    $$| $$  | $$| $$      | $$  \ $$
+|  $$$$$$/| $$$$$$$$| $$   | $$  | $$| $$  | $$    | $$$$$$$$| $$  | $$|  $$$$$$/| $$ \  $$|  $$$$$$/| $$  | $$| $$$$$$$$| $$  | $$
+ \______/ |________/|__/   |__/  |__/|__/  |__/    |________/|__/  |__/ \______/ |__/  \__/ \______/ |__/  |__/|________/|__/  |__/
+                                                                                             
+");
     Console.ForegroundColor = ConsoleColor.Yellow;
     Console.WriteLine("Choisie une option ");
     Console.WriteLine("0 => Quitter");
@@ -46,7 +71,16 @@ static void UltraLauncher()
 
 static void Calculatrice()
 {
-    
+    Console.ForegroundColor = ConsoleColor.DarkBlue;
+    X(@"
+  
+             __     _           __               _      __         _  __     _____  |                   /     _/
+            /     /   \  |     /    \     /|   /   \   /    |   |  |  |\   | |      |                  /    _/
+           |     |     | |    |     |\   / |  |     | |     |___|  |  | \  | |__    |                 /   _/
+           |     |_____| |    |     | \_/  |  |_____| |     |   |  |  |  \ | |      |                /  _/
+            \__  |     | |___  \__  |      |  |     |  \__  |   |  |  |   \| |____  | v. Beta 0.0.1 / _/
+           _________________________________________________________________________|______________/_/
+            ");
     int nb1 = LireUnNombre();
     int nb2 = LireUnNombre();
     int total = nb1 + nb2;
@@ -140,15 +174,35 @@ static void FinDuProgramme()
 
 static void LettreParLettre(string phrase)
 {
+   // Random aleatoire = new Random();
+
     foreach (char c in phrase)
     {
-
+        //int attente = aleatoire.Next(500); //Génère un entier compris entre 0 et 1000        
         Console.Write(c);
         // attendre un temps
-        Thread.Sleep(140);
+        Thread.Sleep(135);
     }
     Console.WriteLine();
 
 
     // v2 attendre un temps aléatoire entre 0.1s et 1 s
+}
+
+
+static void X(string phrase)
+{
+    // Random aleatoire = new Random();
+
+    foreach (char X in phrase)
+    {
+             
+        Console.Write(X);
+        // attendre un temps
+        Thread.Sleep(20);
+    }
+    Console.WriteLine();
+
+
+    
 }
