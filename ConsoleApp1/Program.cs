@@ -3,6 +3,7 @@
 
 static int LireUnNombre()
 {
+    
     Console.WriteLine("Ecrire le 1er chiffre pour l'addition");
     string a = Console.ReadLine();
     
@@ -11,7 +12,7 @@ static int LireUnNombre()
     while (!Int32.TryParse(a, out nb1))
    
     { 
-        Console.WriteLine($"{a} n'est pas un nombre entier");
+       LettreParLettre($"{a} n'est pas un nombre entier");
     Console.WriteLine("Ecrire le 2emes chiffre pour l'addition");
     a= Console.ReadLine();
 }
@@ -45,10 +46,11 @@ static void UltraLauncher()
 
 static void Calculatrice()
 {
+    
     int nb1 = LireUnNombre();
     int nb2 = LireUnNombre();
     int total = nb1 + nb2;
-    Console.WriteLine($"{nb1} + {nb2} = {total}");
+    LettreParLettre($"{nb1} + {nb2} = {total}");
 }
 
 static void Histoire()
@@ -87,39 +89,39 @@ static void RaconterUneHistoire(string nomHero, string choix)
     {
         
         Console.ForegroundColor = ConsoleColor.DarkYellow;
-        Console.WriteLine("histoire 1");
-        Console.WriteLine("            ");
-        Console.WriteLine("alerte alerte alert ");
+        LettreParLettre("histoire 1");
+        LettreParLettre("            ");
+        LettreParLettre("alerte alerte alert ");
 
-        Console.WriteLine("au voleur");
-        Console.WriteLine("on ma volé un gateau");
+        LettreParLettre("au voleur");
+        LettreParLettre("on ma volé un gateau");
 
-        Console.WriteLine("un(e) hero  apparu");
+        LettreParLettre("un(e) hero  apparu");
 
-        Console.WriteLine("le nom(e) de ce hero était " + nomHero);
-        Console.WriteLine("ils ratrapérent le bandit");
-        Console.WriteLine("le boulanger dit merci " + nomHero); Console.WriteLine("retrouvers les gateau ");
-        Console.WriteLine("le mangérent ");
+        LettreParLettre("le nom(e) de ce hero était " + nomHero);
+        LettreParLettre("ils ratrapérent le bandit");
+        LettreParLettre("le boulanger dit merci " + nomHero); LettreParLettre("retrouvers les gateau ");
+        LettreParLettre("le mangérent ");
 
-        Console.WriteLine(" MIAM Miam"); Console.WriteLine("dit " + nomHero);
+        LettreParLettre(" MIAM Miam"); LettreParLettre("dit " + nomHero);
         ;
     }
     if (choix == "2")
     {
         Console.ForegroundColor = ConsoleColor.Magenta;
-        Console.WriteLine("histoire: Le Chien abandonné");
-        Console.WriteLine(" Alerte Alerte Alerte  ");
-        Console.WriteLine("Un Chien a été abandonné");
-        Console.WriteLine("cest un chihuahua, il est a la s.p.a");
+        LettreParLettre("histoire: Le Chien abandonné");
+        LettreParLettre(" Alerte Alerte Alerte  ");
+        LettreParLettre("Un Chien a été abandonné");
+        LettreParLettre("cest un chihuahua, il est a la s.p.a");
 
-        Console.WriteLine("un(e) hero  apparu");
+        LettreParLettre("un(e) hero  apparu");
 
-        Console.WriteLine("le nom(e) de ce hero est " + nomHero);
+        LettreParLettre("le nom(e) de ce hero est " + nomHero);
 
-        Console.WriteLine("Heresement  le Hero est cool ");
-        Console.WriteLine(nomHero + " adopta Mambo");
-        Console.WriteLine("mabo joua toute l apres midi avec " + nomHero);
-        Console.WriteLine(nomHero + " est mambo sont super amis mitemenp");
+        LettreParLettre("Heresement  le Hero est cool ");
+        LettreParLettre(nomHero + " adopta Mambo");
+        LettreParLettre("mabo joua toute l apres midi avec " + nomHero);
+        LettreParLettre(nomHero + " est mambo sont super amis mitemenp");
 
     }
 }
@@ -131,7 +133,8 @@ static bool DoitContinuer(string choix)
 
 static void FinDuProgramme()
 {
-    Console.WriteLine("Fin du programme");
+
+    LettreParLettre("Fin du programme");
     Console.ReadLine();
 }
 
@@ -142,7 +145,7 @@ static void LettreParLettre(string phrase)
 
         Console.Write(c);
         // attendre un temps
-        Thread.Sleep(150);
+        Thread.Sleep(140);
     }
     Console.WriteLine();
 
