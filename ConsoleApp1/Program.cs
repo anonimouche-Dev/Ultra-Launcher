@@ -1,4 +1,6 @@
-﻿UltraLauncher();
+﻿using System.Diagnostics;
+
+UltraLauncher();
 
 
 
@@ -40,22 +42,37 @@ static void UltraLauncher()
    
     
     Console.ForegroundColor = ConsoleColor.DarkYellow;
-    X (@"
- /$$   /$$ /$$    /$$$$$$$$ /$$$$$$$   /$$$$$$      /$$        /$$$$$$  /$$   /$$ /$$   /$$  /$$$$$$  /$$   /$$ /$$$$$$$$ /$$$$$$$ 
-| $$  | $$| $$   |__  $$__/| $$__  $$ /$$__  $$    | $$       /$$__  $$| $$  | $$| $$$ | $$ /$$__  $$| $$  | $$| $$_____/| $$__  $$
-| $$  | $$| $$      | $$   | $$  \ $$| $$  \ $$    | $$      | $$  \ $$| $$  | $$| $$$$| $$| $$  \__/| $$  | $$| $$      | $$  \ $$
-| $$  | $$| $$      | $$   | $$$$$$$/| $$$$$$$$    | $$      | $$$$$$$$| $$  | $$| $$ $$ $$| $$      | $$$$$$$$| $$$$$   | $$$$$$$/
-| $$  | $$| $$      | $$   | $$__  $$| $$__  $$    | $$      | $$__  $$| $$  | $$| $$  $$$$| $$      | $$__  $$| $$__/   | $$__  $$
-| $$  | $$| $$      | $$   | $$  \ $$| $$  | $$    | $$      | $$  | $$| $$  | $$| $$\  $$$| $$    $$| $$  | $$| $$      | $$  \ $$
-|  $$$$$$/| $$$$$$$$| $$   | $$  | $$| $$  | $$    | $$$$$$$$| $$  | $$|  $$$$$$/| $$ \  $$|  $$$$$$/| $$  | $$| $$$$$$$$| $$  | $$
- \______/ |________/|__/   |__/  |__/|__/  |__/    |________/|__/  |__/ \______/ |__/  \__/ \______/ |__/  |__/|________/|__/  |__/
-                                                                                             
+    X(@"
+ /$$   /$$ /$$    /$$$$$$$$ /$$$$$$$   /$$$$$$                                         
+| $$  | $$| $$   |__  $$__/| $$__  $$ /$$__  $$                                        
+| $$  | $$| $$      | $$   | $$  \ $$| $$  \ $$                                        
+| $$  | $$| $$      | $$   | $$$$$$$/| $$$$$$$$                                        
+| $$  | $$| $$      | $$   | $$__  $$| $$__  $$                                        
+| $$  | $$| $$      | $$   | $$  \ $$| $$  | $$                                        
+|  $$$$$$/| $$$$$$$$| $$   | $$  | $$| $$  | $$                                        
+ \______/ |________/|__/   |__/  |__/|__/  |__/                                        
+                                                                                       
+                                                                                       
+                                                                                       
+ /$$        /$$$$$$  /$$   /$$ /$$   /$$  /$$$$$$  /$$   /$$ /$$$$$$$$ /$$$$$$$        
+| $$       /$$__  $$| $$  | $$| $$$ | $$ /$$__  $$| $$  | $$| $$_____/| $$__  $$       
+| $$      | $$  \ $$| $$  | $$| $$$$| $$| $$  \__/| $$  | $$| $$      | $$  \ $$       
+| $$      | $$$$$$$$| $$  | $$| $$ $$ $$| $$      | $$$$$$$$| $$$$$   | $$$$$$$/       
+| $$      | $$__  $$| $$  | $$| $$  $$$$| $$      | $$__  $$| $$__/   | $$__  $$       
+| $$      | $$  | $$| $$  | $$| $$\  $$$| $$    $$| $$  | $$| $$      | $$  \ $$       
+| $$$$$$$$| $$  | $$|  $$$$$$/| $$ \  $$|  $$$$$$/| $$  | $$| $$$$$$$$| $$  | $$       
+|________/|__/  |__/ \______/ |__/  \__/ \______/ |__/  |__/|________/|__/  |__//$$$$$$
+                                                                               |______/                                                                                   
 ");
+    Thread.Sleep(2500);
+    Console.Clear();
     Console.ForegroundColor = ConsoleColor.Yellow;
     Console.WriteLine("Choisie une option ");
     Console.WriteLine("0 => Quitter");
     Console.WriteLine("1 => Histoire");
     Console.WriteLine("2 => Calculatrice");
+    Console.WriteLine("3 => Timer Beta ");
+    Console.WriteLine("4 => crono Beta ");
     string choixFonction = Console.ReadLine();
     if (choixFonction == "1")
     {
@@ -66,20 +83,49 @@ static void UltraLauncher()
     {
         Calculatrice();
     }
+    if (choixFonction == "3")
+    {
+
+        Console.WriteLine("choisiser le temp de votre timer en milisegonde");
+        string TimerTempChoisoire = Console.ReadLine();
+        Console.Clear();int timer1;
+        while (!Int32.TryParse(TimerTempChoisoire, out timer1)) 
+        { }
+
+        Thread.Sleep(timer1);
+        
+        Console.Beep();
+       LettreParLettre("temp ecoulé ");
+        Thread.Sleep(500);
+        Console.Beep();
+        Thread.Sleep(300);
+        Console.Beep();
+        Thread.Sleep(200);
+        Console.Beep();
+        Thread.Sleep(900);
+        Console.Beep();
+        
+    }
+    if (choixFonction == "4")
+    {
+        X("en cour de preparation");
+    }
     FinDuProgramme();
 }
 
 static void Calculatrice()
 {
+    Console.Clear();
     Console.ForegroundColor = ConsoleColor.DarkBlue;
     X(@"
-  
-             __     _           __               _      __         _  __     _____  |                   /     _/
-            /     /   \  |     /    \     /|   /   \   /    |   |  |  |\   | |      |                  /    _/
-           |     |     | |    |     |\   / |  |     | |     |___|  |  | \  | |__    |                 /   _/
-           |     |_____| |    |     | \_/  |  |_____| |     |   |  |  |  \ | |      |                /  _/
-            \__  |     | |___  \__  |      |  |     |  \__  |   |  |  |   \| |____  | v. Beta 0.0.1 / _/
-           _________________________________________________________________________|______________/_/
+    _____         _      _____ _    _ _            _______ _____  _____ _____ ______ 
+  / ____|   /\   | |    / ____| |  | | |        /\|__   __|  __ \|_   _/ ____|  ____|
+ | |       /  \  | |   | |    | |  | | |       /  \  | |  | |__) | | || |    | |__   
+ | |      / /\ \ | |   | |    | |  | | |      / /\ \ | |  |  _  /  | || |    |  __|  
+ | |____ / ____ \| |___| |____| |__| | |____ / ____ \| |  | | \ \ _| || |____| |____ 
+  \_____/_/    \_\______\_____|\____/|______/_/    \_\_|  |_|  \_\_____\_____|______| (beta)
+                                                                                     
+                                                                                      
             ");
     int nb1 = LireUnNombre();
     int nb2 = LireUnNombre();
@@ -109,7 +155,17 @@ static string SaisirNomHero()
 
 static string ChoisirUneHistoire(string nomHero)
 {
+    
     Console.ForegroundColor = ConsoleColor.Blue;
+    Console.Clear();
+    X(@"
+
+  _    _ _____  _____ _______ ____ _____ _____  ______ 
+ | |  | |_   _|/ ____|__   __/ __ \_   _|  __ \|  ____|
+ | |__| | | | | (___    | | | |  | || | | |__) | |__   
+ |  __  | | |  \___ \   | | | |  | || | |  _  /|  __|  
+ | |  | |_| |_ ____) |  | | | |__| || |_| | \ \| |____ 
+ |_|  |_|_____|_____/   |_|  \____/_____|_|  \_\______| ");
     Console.WriteLine("Choisi une histoire " + nomHero);
     Console.WriteLine("0 => Quitter");
     Console.WriteLine("1 => Histoire: le gateau");
@@ -181,9 +237,19 @@ static void LettreParLettre(string phrase)
         //int attente = aleatoire.Next(500); //Génère un entier compris entre 0 et 1000        
         Console.Write(c);
         // attendre un temps
-        Thread.Sleep(135);
+        Thread.Sleep(60);
     }
     Console.WriteLine();
+
+
+    // v2 attendre un temps aléatoire entre 0.1s et 1 s
+}
+
+
+static void LigneParLigne(string phrase)
+{
+    Console.WriteLine(phrase);
+    Thread.Sleep(100);
 
 
     // v2 attendre un temps aléatoire entre 0.1s et 1 s
@@ -193,13 +259,15 @@ static void LettreParLettre(string phrase)
 static void X(string phrase)
 {
     // Random aleatoire = new Random();
-
-    foreach (char X in phrase)
+    int c = 0;
+    foreach (char l in phrase)
     {
-             
-        Console.Write(X);
+        c++;
+        Console.Write(l);
         // attendre un temps
-        Thread.Sleep(9);
+        if(c % 6 == 0)
+        Thread.Sleep(1);
+  
     }
     Console.WriteLine();
 
