@@ -1,47 +1,57 @@
-﻿using System.Diagnostics;
-
+﻿using Microsoft.VisualBasic;
+using System.Diagnostics;
+bool demo = true; //debug mode on = flase
 UltraLauncher();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-static int LireUnNombre()
+void LettreParLettre(string phrase)
 {
-    
+
+
+    if (demo)
+    {// Random aleatoire = new Random();
+
+        foreach (char c in phrase)
+        {
+            //int attente = aleatoire.Next(500); //Génère un entier compris entre 0 et 1000        
+            Console.Write(c);
+            // attendre un temps
+            Thread.Sleep(60);
+        }
+        Console.WriteLine();
+    }
+    else
+    {
+        string c = phrase;
+        Console.WriteLine(c);
+    }
+    // v2 attendre un temps aléatoire entre 0.1s et 1 s
+}
+
+int LireUnNombre()
+{
+
     Console.WriteLine("Ecrire chiffre pour l'addition");
     string a = Console.ReadLine();
-    
+
     int nb1;
-    
+
     while (!Int32.TryParse(a, out nb1))
-   
-    { 
-       LettreParLettre($"{a} n'est pas un nombre entier");
-    Console.WriteLine("Ecrire le 2emes chiffre pour l'addition");
-    a= Console.ReadLine();
-}
+
+    {
+        LettreParLettre($"{a} n'est pas un nombre entier");
+        Console.WriteLine("Ecrire le 2emes chiffre pour l'addition");
+        a = Console.ReadLine();
+    }
 
     return nb1;
 }
 
-static void UltraLauncher()
-{ 
-   
-    
+void UltraLauncher()
+{
+
     Console.ForegroundColor = ConsoleColor.DarkYellow;
+    Console.Title = "Ultra-launcher";
+
     X(@"
  /$$   /$$ /$$    /$$$$$$$$ /$$$$$$$   /$$$$$$                                         
 | $$  | $$| $$   |__  $$__/| $$__  $$ /$$__  $$                                        
@@ -72,30 +82,35 @@ static void UltraLauncher()
     Console.WriteLine("1 => Histoire");
     Console.WriteLine("2 => Calculatrice");
     Console.WriteLine("3 => Timer Beta ");
-    Console.WriteLine("4 => crono Beta ");
+    Console.WriteLine("4 => Chrono Beta ");
+    Console.WriteLine("5 => jeu  video : en cour de codage ");
+    Console.WriteLine("6 => bloc-note  : en cour de codage ");
     string choixFonction = Console.ReadLine();
     if (choixFonction == "1")
     {
+        Console.Title = "Histoire";
         Histoire();
     }
+    
 
     if (choixFonction == "2")
     {
+        Console.Title = "Calculatrice";
         Calculatrice();
     }
     if (choixFonction == "3")
     {
-
-        Console.WriteLine("choisiser le temp de votre timer en milisegonde");
+        Console.Title = "Timer";
+        Console.WriteLine("Choisissez le temps de votre timer, en seconde");
         string TimerTempChoisoire = Console.ReadLine();
-        Console.Clear();int timer1;
-        while (!Int32.TryParse(TimerTempChoisoire, out timer1)) 
+        Console.Clear(); int timer1;
+        while (!Int32.TryParse(TimerTempChoisoire, out timer1))
         { }
 
-        Thread.Sleep(timer1);
-        
+        Thread.Sleep(timer1 * 1_000);
+
         Console.Beep();
-       LettreParLettre("temp ecoulé ");
+        LettreParLettre("temp ecoulé ");
         Thread.Sleep(500);
         Console.Beep();
         Thread.Sleep(300);
@@ -104,20 +119,81 @@ static void UltraLauncher()
         Console.Beep();
         Thread.Sleep(900);
         Console.Beep();
-        
+        Thread.Sleep(90);
+        Console.Beep();
+        Thread.Sleep(90);
+        Console.Beep();
+        Thread.Sleep(90);
+        Console.Beep();
+        Thread.Sleep(90);
+        Console.Beep();
+        Thread.Sleep(90);
+        Console.Beep();
+        Thread.Sleep(90);
+        Console.Beep();
+        Console.Beep();
+        Console.Beep();
+        Console.Beep();
+        Console.Beep();
+        Console.Beep();
+        Console.Beep();
+        Console.Beep();
+        Console.Beep();
+        Console.Beep(); Console.Beep();
+        Console.Beep();
+        Console.Beep();
+        Console.Beep();
+        Console.Beep(); Console.Beep();
+        Console.Beep();
+        Console.Beep();
+        Console.Beep();
+        Console.Beep();
+
     }
+
     if (choixFonction == "4")
     {
-        X("en cour de preparation");
-    }
-    FinDuProgramme();
-}
 
-static void Calculatrice()
-{
-    Console.Clear();
-    Console.ForegroundColor = ConsoleColor.DarkBlue;
-    X(@"
+        Console.WriteLine("seconde: ");
+        int chrono = 0;
+        Console.Title = "Chrono";
+        while (true)
+        {
+            chrono++;
+            Console.WriteLine($"seconde:{chrono}");
+            Thread.Sleep(1000);
+            Console.Clear();
+        }
+        FinDuProgramme();
+    }
+    if (choixFonction == "5")
+    {
+
+        Console.Clear();
+        static void Main()
+        {
+
+            string executablePath = @"C:\git\Ultra-Launcher\game and oters aplication est fichier iniore\consoleGame1\consoleGame1\bin\Debug\net7.0\consoleGame1.exe";
+
+            ProcessStartInfo processStartInfo = new ProcessStartInfo(executablePath);
+            processStartInfo.WorkingDirectory = @"C:\git\Ultra-Launcher\game and oters aplication est fichier iniore\consoleGame1\consoleGame1\bin\Debug\net7.0/";
+
+            Process.Start(processStartInfo);
+        }
+
+      
+    }
+
+
+
+
+
+    if (choixFonction == "6") { }
+    void Calculatrice()
+    {
+        Console.Clear();
+        Console.ForegroundColor = ConsoleColor.DarkBlue;
+        X(@"
     _____         _      _____ _    _ _            _______ _____  _____ _____ ______ 
   / ____|   /\   | |    / ____| |  | | |        /\|__   __|  __ \|_   _/ ____|  ____|
  | |       /  \  | |   | |    | |  | | |       /  \  | |  | |__) | | || |    | |__   
@@ -127,38 +203,39 @@ static void Calculatrice()
                                                                                      
                                                                                       
             ");
-    int nb1 = LireUnNombre();
-    int nb2 = LireUnNombre();
-    int total = nb1 + nb2;
-    LettreParLettre($"{nb1} + {nb2} = {total}");
-}
-
-static void Histoire()
-{
-    string nomHero = SaisirNomHero();
-    string choix = ChoisirUneHistoire(nomHero);
-
-    while (DoitContinuer(choix))
-    {
-        RaconterUneHistoire(nomHero, choix);
-        choix = ChoisirUneHistoire(nomHero);
+        int nb1 = LireUnNombre();
+        int nb2 = LireUnNombre();
+        int total = nb1 + nb2;
+        LettreParLettre($"{nb1} + {nb2} = {total}");
     }
-}
+    Console.ReadLine();
 
-static string SaisirNomHero()
-{
-    Console.ForegroundColor = ConsoleColor.Cyan;
-    Console.WriteLine("ecrit ton Nom ");
-    Console.WriteLine(">");
-    return Console.ReadLine();
-}
+    void Histoire()
+    {
+        string nomHero = SaisirNomHero();
+        string choix = ChoisirUneHistoire(nomHero);
 
-static string ChoisirUneHistoire(string nomHero)
-{
-    
-    Console.ForegroundColor = ConsoleColor.Blue;
-    Console.Clear();
-    X(@"
+        while (DoitContinuer(choix))
+        {
+            RaconterUneHistoire(nomHero, choix);
+            choix = ChoisirUneHistoire(nomHero);
+        }
+    }
+
+    string SaisirNomHero()
+    {
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine("ecrit ton Nom ");
+        Console.WriteLine(">");
+        return Console.ReadLine();
+    }
+
+    string ChoisirUneHistoire(string nomHero)
+    {
+
+        Console.ForegroundColor = ConsoleColor.Blue;
+        Console.Clear();
+        X(@"
 
   _    _ _____  _____ _______ ____ _____ _____  ______ 
  | |  | |_   _|/ ____|__   __/ __ \_   _|  __ \|  ____|
@@ -166,111 +243,98 @@ static string ChoisirUneHistoire(string nomHero)
  |  __  | | |  \___ \   | | | |  | || | |  _  /|  __|  
  | |  | |_| |_ ____) |  | | | |__| || |_| | \ \| |____ 
  |_|  |_|_____|_____/   |_|  \____/_____|_|  \_\______| ");
-    Console.WriteLine("Choisi une histoire " + nomHero);
-    Console.WriteLine("0 => Quitter");
-    Console.WriteLine("1 => Histoire: le gateau");
-    Console.WriteLine("2 => Le chien abandonné");
-    return Console.ReadLine();
-}
-
-static void RaconterUneHistoire(string nomHero, string choix)
-{
-    if (choix == "1")
-    {
-        
-        Console.ForegroundColor = ConsoleColor.DarkYellow;
-        LettreParLettre("histoire 1");
-        LettreParLettre("            ");
-        LettreParLettre("alerte alerte alert ");
-
-        LettreParLettre("au voleur");
-        LettreParLettre("on ma volé un gateau");
-
-        LettreParLettre("un(e) hero  apparu");
-
-        LettreParLettre("le nom(e) de ce hero était " + nomHero);
-        LettreParLettre("ils ratrapérent le bandit");
-        LettreParLettre("le boulanger dit merci " + nomHero); LettreParLettre("retrouvers les gateau ");
-        LettreParLettre("le mangérent ");
-
-        LettreParLettre(" MIAM Miam"); LettreParLettre("dit " + nomHero);
-        ;
+        Console.WriteLine("Choisi une histoire " + nomHero);
+        Console.WriteLine("0 => Quitter");
+        Console.WriteLine("1 => Histoire: le gateau");
+        Console.WriteLine("2 => Le chien abandonné");
+        return Console.ReadLine();
     }
-    if (choix == "2")
+
+    void RaconterUneHistoire(string nomHero, string choix)
     {
-        Console.ForegroundColor = ConsoleColor.Magenta;
-        LettreParLettre("histoire: Le Chien abandonné");
-        LettreParLettre(" Alerte Alerte Alerte  ");
-        LettreParLettre("Un Chien a été abandonné");
-        LettreParLettre("cest un chihuahua, il est a la s.p.a");
+        if (choix == "1")
+        {
 
-        LettreParLettre("un(e) hero  apparu");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            LettreParLettre("histoire 1");
+            LettreParLettre("            ");
+            LettreParLettre("alerte alerte alert ");
 
-        LettreParLettre("le nom(e) de ce hero est " + nomHero);
+            LettreParLettre("au voleur");
+            LettreParLettre("on ma volé un gateau");
 
-        LettreParLettre("Heresement  le Hero est cool ");
-        LettreParLettre(nomHero + " adopta Mambo");
-        LettreParLettre("mabo joua toute l apres midi avec " + nomHero);
-        LettreParLettre(nomHero + " est mambo sont super amis mitemenp");
+            LettreParLettre("un(e) hero  apparu");
 
+            LettreParLettre("le nom(e) de ce hero était " + nomHero);
+            LettreParLettre("ils ratrapérent le bandit");
+            LettreParLettre("le boulanger dit merci " + nomHero); LettreParLettre("retrouvers les gateau ");
+            LettreParLettre("le mangérent ");
+
+            LettreParLettre(" MIAM Miam"); LettreParLettre("dit " + nomHero);
+
+            Console.ReadLine();
+        }
+        if (choix == "2")
+        {
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            LettreParLettre("histoire: Le Chien abandonné");
+            LettreParLettre(" Alerte Alerte Alerte  ");
+            LettreParLettre("Un Chien a été abandonné");
+            LettreParLettre("cest un chihuahua, il est a la s.p.a");
+
+            LettreParLettre("un(e) hero  apparu");
+
+            LettreParLettre("le nom(e) de ce hero est " + nomHero);
+
+            LettreParLettre("Heresement  le Hero est cool ");
+            LettreParLettre(nomHero + " adopta Mambo");
+            LettreParLettre("mabo joua toute l apres midi avec " + nomHero);
+            LettreParLettre(nomHero + " est mambo sont super amis mitemenp");
+            Console.ReadLine();
+        }
     }
-}
-
-static bool DoitContinuer(string choix)
-{
-    return choix != "0";
-}
-
-static void FinDuProgramme()
-{
-
-    LettreParLettre("Fin du programme");
     Console.ReadLine();
-}
-
-static void LettreParLettre(string phrase)
-{
-   // Random aleatoire = new Random();
-
-    foreach (char c in phrase)
+    bool DoitContinuer(string choix)
     {
-        //int attente = aleatoire.Next(500); //Génère un entier compris entre 0 et 1000        
-        Console.Write(c);
-        // attendre un temps
-        Thread.Sleep(60);
+        return choix != "0";
     }
-    Console.WriteLine();
 
-
-    // v2 attendre un temps aléatoire entre 0.1s et 1 s
-}
-
-
-static void LigneParLigne(string phrase)
-{
-    Console.WriteLine(phrase);
-    Thread.Sleep(100);
-
-
-    // v2 attendre un temps aléatoire entre 0.1s et 1 s
-}
-
-
-static void X(string phrase)
-{
-    // Random aleatoire = new Random();
-    int c = 0;
-    foreach (char l in phrase)
+    void FinDuProgramme()
     {
-        c++;
-        Console.Write(l);
-        // attendre un temps
-        if(c % 6 == 0)
-        Thread.Sleep(1);
-  
+
+        LettreParLettre("Fin du programme");
+        Console.ReadLine();
     }
-    Console.WriteLine();
 
 
-    
+
+    void LigneParLigne(string phrase)
+    {
+        Console.WriteLine(phrase);
+        Thread.Sleep(100);
+
+
+        // v2 attendre un temps aléatoire entre 0.1s et 1 s
+    }
+
+
+    void X(string phrase)
+    {
+        // Random aleatoire = new Random();
+        int c = 0;
+        foreach (char l in phrase)
+        {
+
+            c++;
+            Console.Write(l);
+            // attendre un temps
+            if (c % 6 == 0)
+                Thread.Sleep(1);
+
+        }
+        Console.WriteLine();
+
+
+
+    }
 }

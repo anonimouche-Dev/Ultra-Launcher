@@ -7,4 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="game and oters aplication\**" />
+    <EmbeddedResource Remove="game and oters aplication\**" />
+    <None Remove="game and oters aplication\**" />
+  </ItemGroup>
+
 </Project>
