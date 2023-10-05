@@ -86,6 +86,7 @@ void UltraLauncher()
     Console.WriteLine("5 => jeu  video : en cour de codage ");
     Console.WriteLine("6 => bloc-note  : en cour de codage ");
     string choixFonction = Console.ReadLine();
+    
     if (choixFonction == "1")
     {
         Console.Title = "Histoire";
@@ -188,7 +189,11 @@ void UltraLauncher()
 
 
 
-    if (choixFonction == "6") { }
+    if (choixFonction == "6") {
+        Console.Clear();
+        Console.BackgroundColor = ConsoleColor.White; Console.ForegroundColor = ConsoleColor.Black; Console.WriteLine("             "); 
+        
+    }
     void Calculatrice()
     {
         Console.Clear();
