@@ -85,6 +85,7 @@ void UltraLauncher()
     Console.WriteLine("4 => Chrono Beta ");
     Console.WriteLine("5 => jeu  video : en cour de codage ");
     Console.WriteLine("6 => bloc-note  : en cour de codage ");
+    Console.WriteLine("7 => api  : en cour de codage ");
     string choixFonction = Console.ReadLine();
     
     if (choixFonction == "1")
@@ -193,6 +194,12 @@ void UltraLauncher()
         Console.Clear();
         Console.BackgroundColor = ConsoleColor.White; Console.ForegroundColor = ConsoleColor.Black; Console.WriteLine("             "); 
         
+    }
+    if (choixFonction == "7")
+    {
+        Console.Clear();
+      
+
     }
     void Calculatrice()
     {
