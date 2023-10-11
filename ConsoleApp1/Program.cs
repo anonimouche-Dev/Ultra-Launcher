@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics;
+using System.Text.Json;
+
 bool demo = true; //debug mode on = false
 await UltraLauncher();
 
@@ -196,28 +198,25 @@ static void LancerLeProgramme()
 async Task AppelApi()
 {
     using HttpClient client = new();
-    //var histoires = await ProcessRepositoriesAsync(client);
+    var titres = await ObtenirLesHistoiresAsync(client);
+    int numero = 0;
 
-    //foreach (var repo in repositories)
-    //{
-    //    Console.WriteLine($"Name: {repo.Name}");
-    //    Console.WriteLine($"Homepage: {repo.Homepage}");
-    //    Console.WriteLine($"GitHub: {repo.GitHubHomeUrl}");
-    //    Console.WriteLine($"Description: {repo.Description}");
-    //    Console.WriteLine($"Watchers: {repo.Watchers:#,0}");
-    //    Console.WriteLine($"{repo.LastPush}");
-    //    Console.WriteLine();
-    //}
+    foreach (var titre in titres)
+    {
+        Console.WriteLine($"Liste des histoires:");
+        Console.WriteLine($"Titre {numero}: {titre}");
+    }
+    Console.WriteLine();
 }
 
-//static async Task<List<Repository>> ProcessRepositoriesAsync(HttpClient client)
-//{
-//    await using Stream stream =
-//        await client.GetStreamAsync("https://api.github.com/orgs/dotnet/repos");
-//    var repositories =
-//        await JsonSerializer.DeserializeAsync<List<string>>(stream);
-//    return repositories ?? new();
-//}
+static async Task<List<string>> ObtenirLesHistoiresAsync(HttpClient client)
+{
+    await using Stream stream =
+        await client.GetStreamAsync("https://localhost:7179/Histoires");
+    var repositories =
+        await JsonSerializer.DeserializeAsync<List<string>>(stream);
+    return repositories ?? new();
+}
 
 void Calculatrice()
 {
