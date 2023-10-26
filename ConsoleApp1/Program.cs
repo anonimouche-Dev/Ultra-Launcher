@@ -46,12 +46,7 @@ async Task UltraLauncher()
         LancerLeProgramme();
     }
 
-    if (choixFonction == "6")
-    {
-        Console.Clear();
-        Console.BackgroundColor = ConsoleColor.White; Console.ForegroundColor = ConsoleColor.Black; Console.WriteLine("             ");
-    }
-
+    
     if (choixFonction == "7")
     {
         Console.Clear();
@@ -190,7 +185,7 @@ static void LancerLeProgramme()
     string executablePath = @"C:\git\Ultra-Launcher\game and oters aplication est fichier iniore\consoleGame1\consoleGame1\bin\Debug\net7.0\consoleGame1.exe";
 
     ProcessStartInfo processStartInfo = new ProcessStartInfo(executablePath);
-    processStartInfo.WorkingDirectory = @"C:\git\Ultra-Launcher\game and oters aplication est fichier iniore\consoleGame1\consoleGame1\bin\Debug\net7.0/";
+    processStartInfo.WorkingDirectory = @"C:\git\Ultra-Launcher\game and oters aplication est fichier iniore\consoleGame1\consoleGame1\bin\Debug\net7.0";
 
     Process.Start(processStartInfo);
 }
@@ -298,9 +293,9 @@ void RaconterUneHistoire(string nomHero, string choix)
         LettreParLettre("le boulanger dit merci " + nomHero); LettreParLettre("retrouvers les gateau ");
         LettreParLettre("le mangérent ");
 
-        LettreParLettre(" MIAM Miam"); LettreParLettre("dit " + nomHero);
+        LettreParLettre(" MIAM Miam"); LettreParLettre("dit " + nomHero); Console.ReadKey();
 
-        Console.ReadLine();
+
     }
     if (choix == "2")
     {
@@ -317,8 +312,8 @@ void RaconterUneHistoire(string nomHero, string choix)
         LettreParLettre("Heresement  le Hero est cool ");
         LettreParLettre(nomHero + " adopta Mambo");
         LettreParLettre("mabo joua toute l apres midi avec " + nomHero);
-        LettreParLettre(nomHero + " est mambo sont super amis mitemenp");
-        Console.ReadLine();
+        LettreParLettre(nomHero + " est mambo sont super amis mitemenp"); Console.ReadKey(); 
+        
     }
 }
 
