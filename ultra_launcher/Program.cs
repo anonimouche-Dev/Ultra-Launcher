@@ -136,7 +136,6 @@ void Timer(bool demo)
     Console.Beep();
     Console.Beep();
     Console.Beep();
-    Console.Beep();
     Console.Beep(); Console.Beep();
     Console.Beep();
     Console.Beep();
@@ -175,7 +174,7 @@ void Prompt()
 |________/|__/  |__/ \______/ |__/  \__/ \______/ |__/  |__/|________/|__/  |__//$$$$$$
                                                                                |______/                                                                                   
 ");
-    Thread.Sleep(2500);
+    Thread.Sleep(10);
     Console.Clear();
 }
 
@@ -303,7 +302,7 @@ void RaconterUneHistoire(string nomHero, string choix)
         LettreParLettre("histoire: Le Chien abandonné");
         LettreParLettre(" Alerte Alerte Alerte  ");
         LettreParLettre("Un Chien a été abandonné");
-        LettreParLettre("cest un chihuahua, il est a la s.p.a");
+        LettreParLettre("c"+ "e" + "s" + "t" + "un chihuahua, il est a la s.p.a");
 
         LettreParLettre("un(e) hero  apparu");
 
@@ -338,7 +337,7 @@ void X(string phrase)
         c++;
         Console.Write(l);
         // attendre un temps
-        if (c % 6 == 0)
+        if (c % 8 == 0)
             Thread.Sleep(1);
 
     }
@@ -356,7 +355,7 @@ static string ChoisirUneAction()
     Console.WriteLine("4 => Chrono Beta ");
     Console.WriteLine("5 => jeu  video : en cour de codage ");
     Console.WriteLine("6 => bloc-note  : en cour de codage ");
-    Console.WriteLine("7 => api  : en cour de codage ");
+    Console.WriteLine("7 => Histoire en lingne");
     string choixFonction = Console.ReadLine();
     return choixFonction;
 }
