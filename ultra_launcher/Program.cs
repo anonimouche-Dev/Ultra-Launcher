@@ -56,16 +56,17 @@ async Task UltraLauncher()
 }
 
 void LettreParLettre(string phrase)
-{
-    if (demo)
-    {// Random aleatoire = new Random();
+{ Random aleatoire = new Random();
 
+    if (demo)
+    {
         foreach (char c in phrase)
         {
-            //int attente = aleatoire.Next(500); //Génère un entier compris entre 0 et 1000        
+            
+            int attente = aleatoire.Next(500); //Génère un entier compris entre 0 et 1000        
             Console.Write(c);
             // attendre un temps
-            Thread.Sleep(60);
+            Thread.Sleep(attente);
         }
         Console.WriteLine();
     }
@@ -280,14 +281,14 @@ void RaconterUneHistoire(string nomHero, string choix)
         Console.ForegroundColor = ConsoleColor.DarkYellow;
         LettreParLettre("histoire 1");
         LettreParLettre("            ");
-        LettreParLettre("alerte alerte alert ");
+        LettreParLettre("alerte alerte ");
 
         LettreParLettre("au voleur");
         LettreParLettre("on ma volé un gateau");
 
         LettreParLettre("un(e) hero  apparu");
 
-        LettreParLettre("le nom(e) de ce hero était " + nomHero);
+        LettreParLettre("le nom(e) de ce hero était {nomHero}");
         LettreParLettre("ils ratrapérent le bandit");
         LettreParLettre("le boulanger dit merci " + nomHero); LettreParLettre("retrouvers les gateau ");
         LettreParLettre("le mangérent ");
@@ -300,7 +301,7 @@ void RaconterUneHistoire(string nomHero, string choix)
     {
         Console.ForegroundColor = ConsoleColor.Magenta;
         LettreParLettre("histoire: Le Chien abandonné");
-        LettreParLettre(" Alerte Alerte Alerte  ");
+        LettreParLettre(" Alerte Alerte   ");
         LettreParLettre("Un Chien a été abandonné");
         LettreParLettre("c"+ "e" + "s" + "t" + "un chihuahua, il est a la s.p.a");
 
