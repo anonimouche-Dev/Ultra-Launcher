@@ -43,6 +43,7 @@ async Task UltraLauncher()
     if (choixFonction == "5")
     {
         Console.Clear();
+        
         LancerLeProgramme();
     }
 
@@ -63,10 +64,11 @@ void LettreParLettre(string phrase)
         foreach (char c in phrase)
         {
             
-            int attente = aleatoire.Next(500); //Génère un entier compris entre 0 et 1000        
+            int attente = aleatoire.Next(100); //Génère un entier compris entre 0 et 1000        
             Console.Write(c);
             // attendre un temps
             Thread.Sleep(attente);
+
         }
         Console.WriteLine();
     }
