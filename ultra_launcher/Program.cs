@@ -282,7 +282,7 @@ void RaconterUneHistoire(string nomHero, string choix)
 
         Console.ForegroundColor = ConsoleColor.DarkYellow;
         LettreParLettre("histoire 1");
-        LettreParLettre("            ");
+        Console.WriteLine();
         LettreParLettre("alerte alerte ");
 
         LettreParLettre("au voleur");
