@@ -8,12 +8,19 @@ async Task UltraLauncher()
 {
     Prompt();
     string choixFonction = ChoisirUneAction();
-
-    if (choixFonction == "1")
+    switch(choixFonction)
     {
-        Console.Title = "Histoire";
-        Histoire();
+        case "1":  Console.Title = "Histoire";
+            Histoire();
+            break;
+        default: break;
     }
+    if (choixFonction == "")
+    {
+        Console.Clear();
+        UltraLauncher();
+    }
+
 
     if (choixFonction == "2")
     {
@@ -43,11 +50,11 @@ async Task UltraLauncher()
     if (choixFonction == "5")
     {
         Console.Clear();
-        
+
         LancerLeProgramme();
     }
 
-    
+
     if (choixFonction == "7")
     {
         Console.Clear();
@@ -57,13 +64,14 @@ async Task UltraLauncher()
 }
 
 void LettreParLettre(string phrase)
-{ Random aleatoire = new Random();
+{
+    Random aleatoire = new Random();
 
     if (demo)
     {
         foreach (char c in phrase)
         {
-            
+
             int attente = aleatoire.Next(100); //Génère un entier compris entre 0 et 1000        
             Console.Write(c);
             // attendre un temps
@@ -83,7 +91,7 @@ void LettreParLettre(string phrase)
 int LireUnNombre()
 {
 
-    Console.WriteLine("Ecrire chiffre pour l'addition");
+    Console.WriteLine("Ecrire chiffre");
     string nombreLu = Console.ReadLine();
 
     int nb1;
@@ -92,7 +100,7 @@ int LireUnNombre()
 
     {
         LettreParLettre($"{nombreLu} n'est pas un nombre entier");
-        Console.WriteLine("Ecrire le 2emes chiffre pour l'addition");
+        Console.WriteLine("Ecrire un chiffre");
         nombreLu = Console.ReadLine();
     }
 
@@ -195,24 +203,26 @@ static void LancerLeProgramme()
 async Task AppelApi()
 {
     using HttpClient client = new();
-    var titres = await ObtenirLesHistoiresAsync(client);
-    int numero = 0;
-
-    foreach (var titre in titres)
+    var histoires = await ObtenirLesHistoiresAsync(client);
+    foreach (var histoire in histoires)
     {
         Console.WriteLine($"Liste des histoires:");
-        Console.WriteLine($"Titre {numero}: {titre}");
+        Console.WriteLine($" Choix {histoire.id} Titre : {histoire.titre}");
     }
     Console.WriteLine();
+    Console.Write(">");
+    int choix = LireUnNombre();
+    var histoireChoisie = histoires.FirstOrDefault(h => h.id == choix);
+    Console.WriteLine($"vous avez choisi {histoireChoisie.titre} ");
+    Console.WriteLine(histoireChoisie.contenu);
 }
 
-static async Task<List<string>> ObtenirLesHistoiresAsync(HttpClient client)
+static async Task<IReadOnlyList<HistoireEnLigne>> ObtenirLesHistoiresAsync(HttpClient client)
 {
     await using Stream stream =
         await client.GetStreamAsync("https://localhost:7179/Histoires");
-    var repositories =
-        await JsonSerializer.DeserializeAsync<List<string>>(stream);
-    return repositories ?? new();
+    var histoires = await JsonSerializer.DeserializeAsync<List<HistoireEnLigne>>(stream);
+    return histoires;
 }
 
 void Calculatrice()
@@ -305,7 +315,7 @@ void RaconterUneHistoire(string nomHero, string choix)
         LettreParLettre("histoire: Le Chien abandonné");
         LettreParLettre(" Alerte Alerte   ");
         LettreParLettre("Un Chien a été abandonné");
-        LettreParLettre("c"+ "e" + "s" + "t" + "un chihuahua, il est a la s.p.a");
+        LettreParLettre("c" + "e" + "s" + "t" + "un chihuahua, il est a la s.p.a");
 
         LettreParLettre("un(e) hero  apparu");
 
@@ -314,8 +324,8 @@ void RaconterUneHistoire(string nomHero, string choix)
         LettreParLettre("Heresement  le Hero est cool ");
         LettreParLettre(nomHero + " adopta Mambo");
         LettreParLettre("mabo joua toute l apres midi avec " + nomHero);
-        LettreParLettre(nomHero + " est mambo sont super amis mitemenp"); Console.ReadKey(); 
-        
+        LettreParLettre(nomHero + " est mambo sont super amis mitemenp"); Console.ReadKey();
+
     }
 }
 
@@ -354,11 +364,18 @@ static string ChoisirUneAction()
     Console.WriteLine("0 => Quitter");
     Console.WriteLine("1 => Histoire");
     Console.WriteLine("2 => Calculatrice");
-    Console.WriteLine("3 => Timer Beta ");
-    Console.WriteLine("4 => Chrono Beta ");
-    Console.WriteLine("5 => jeu  video : en cour de codage ");
-    Console.WriteLine("6 => bloc-note  : en cour de codage ");
-    Console.WriteLine("7 => Histoire en lingne");
+    Console.WriteLine("3 => Timer Beta");
+    Console.WriteLine("4 => Chrono Beta");
+    Console.WriteLine("5 => Jeu  video : en cours de codage ");
+    Console.WriteLine("6 => Bloc-note  : en cours de codage ");
+    Console.WriteLine("7 => Histoire en ligne");
     string choixFonction = Console.ReadLine();
     return choixFonction;
+}
+
+public class HistoireEnLigne
+{
+    public int id { get; set; }
+    public string titre { get; set; }
+    public string contenu { get; set; }
 }
